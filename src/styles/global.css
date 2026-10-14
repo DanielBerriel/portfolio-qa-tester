@@ -178,36 +178,33 @@ ol {
 
 .brand {
   display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 650;
-  min-width: 0;
-}
-
-.brand:hover {
-  color: var(--text);
-}
-
-.brand-mark {
-  display: grid;
-  place-items: center;
   flex: none;
-  width: 34px;
-  height: 34px;
-  border-radius: 9px;
-  background: var(--accent);
-  color: var(--on-accent);
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  font-weight: 700;
+  border-radius: 50%;
 }
 
-.brand-name {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.brand:focus-visible {
+  border-radius: 50%;
+}
+
+.brand-avatar {
+  display: block;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #fff;
+  box-shadow: 0 0 0 2px var(--accent);
+  transition: transform 0.2s ease;
+}
+
+.brand:hover .brand-avatar {
+  transform: scale(1.06) rotate(-4deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand:hover .brand-avatar {
+    transform: none;
+  }
 }
 
 .nav ul {

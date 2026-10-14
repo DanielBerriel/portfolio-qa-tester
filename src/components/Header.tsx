@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import avatarUrl from '../assets/avatar.jpg'
 import { navLinks } from '../data/navigation'
 import { profile } from '../data/profile'
 
@@ -18,10 +19,14 @@ export function Header() {
     <header className="site-header" data-cy="header">
       <div className="container header-inner">
         <a href="#inicio" className="brand" data-cy="brand">
-          <span className="brand-mark" aria-hidden="true">
-            DB
-          </span>
-          <span className="brand-name">{profile.name}</span>
+          <img
+            src={avatarUrl}
+            alt={`${profile.name}, voltar ao início`}
+            width={48}
+            height={48}
+            className="brand-avatar"
+            data-cy="avatar"
+          />
         </a>
 
         <button

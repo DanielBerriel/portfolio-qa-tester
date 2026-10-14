@@ -37,7 +37,17 @@ describe('Navegação', () => {
       })
   })
 
-  it('volta ao início ao clicar no nome no cabeçalho', () => {
+  it('carrega a imagem do avatar no cabeçalho', () => {
+    cy.getByCy('avatar')
+      .should('be.visible')
+      .and(($img) => {
+        const img = $img[0] as HTMLImageElement
+        expect(img.complete, 'imagem carregada').to.be.true
+        expect(img.naturalWidth, 'largura real da imagem').to.be.greaterThan(0)
+      })
+  })
+
+  it('volta ao início ao clicar no avatar do cabeçalho', () => {
     cy.scrollTo('bottom')
     cy.getByCy('brand').click()
 

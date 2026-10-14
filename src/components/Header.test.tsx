@@ -2,9 +2,18 @@ import { render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
 import { navLinks } from '../data/navigation'
+import { profile } from '../data/profile'
 import { Header } from './Header'
 
 describe('Header', () => {
+  it('exibe o avatar como link de volta ao início, com texto alternativo', () => {
+    render(<Header />)
+
+    const homeLink = screen.getByRole('link', { name: `${profile.name}, voltar ao início` })
+    expect(homeLink).toHaveAttribute('href', '#inicio')
+    expect(within(homeLink).getByRole('img')).toHaveAttribute('src', expect.stringContaining('avatar'))
+  })
+
   it('renderiza os links de navegação na ordem das seções', () => {
     render(<Header />)
 
